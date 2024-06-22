@@ -1,6 +1,7 @@
 import { Divider, Grid, Group, Paper, Stack, Text, Title } from "@mantine/core";
 import _ from "lodash";
 import { useRouter } from "next/router";
+import { hiddenAddress } from "~/core/utils/string";
 import Layout from "~/layouts";
 
 interface CardProps {
@@ -37,7 +38,7 @@ export default function CampaignDetail() {
   const listDetail = [
     {
       id: 1,
-      title: id,
+      title: hiddenAddress(id),
       subtitle: "Address of Manager",
       content:
         "The manager created this campaign and can create request to withdraw money.",

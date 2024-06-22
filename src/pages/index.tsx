@@ -8,14 +8,15 @@ import {
   Title,
 } from "@mantine/core";
 import Link from "next/link";
+import { hiddenAddress } from "~/core/utils/string";
 import Layout from "~/layouts";
 
 const campaigns = [
   {
-    address: "0x5a2aB87d167c53856e557AAC95a415f1b45f7c8B",
+    address: "0xe7F5697269C9B2CD490D42F163f97D04CEB69995",
   },
   {
-    address: "0x0F18d25A05030a6BfFD19dE42736edC540b5d222",
+    address: "0x74214D6ADB05CFce7E37E1E7d45685EcEe72D8EA",
   },
 ];
 
@@ -39,7 +40,7 @@ export default function IndexPage() {
                 radius="lg"
                 style={{ overflowWrap: "break-word" }}
               >
-                <Title order={3}>{item.address}</Title>
+                <Title order={4}>{hiddenAddress(item.address)}</Title>
 
                 <Group justify="right">
                   <Anchor
