@@ -1,7 +1,8 @@
-import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
+
+import { MantineProvider } from "@mantine/core";
 import Head from "next/head";
-import { theme } from "../../theme";
+import { theme } from "~/core/styles/theme";
 
 export default function App({ Component, pageProps }: any) {
   return (
