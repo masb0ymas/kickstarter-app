@@ -84,7 +84,7 @@ contract Campaign {
         request.complete = true;
     }
 
-    function getSummery()
+    function getSummary()
         public
         view
         returns (uint, uint, uint, uint, address)
