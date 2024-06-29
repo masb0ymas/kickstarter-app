@@ -43,6 +43,7 @@ export default function Header() {
   const title = env.APP_NAME;
 
   async function connectWallet() {
+    // @ts-expect-error
     const ethereum: Eip1193Provider = window.ethereum;
 
     const connect = await ethereum.request({
