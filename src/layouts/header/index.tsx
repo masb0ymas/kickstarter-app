@@ -65,6 +65,8 @@ export default function Header() {
     console.log({ connect, accounts, signature });
   }
 
+  let ensName = hiddenAddress(etherAddress, 30, 20);
+
   return (
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
@@ -76,7 +78,7 @@ export default function Header() {
 
           {!_.isNil(etherAddress) && !_.isEmpty(etherAddress) ? (
             <Button radius="md" variant="outline">
-              {hiddenAddress(etherAddress, 30, 20)}
+              {ensName}
             </Button>
           ) : (
             <Button radius="md" variant="outline" onClick={connectWallet}>

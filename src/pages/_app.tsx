@@ -1,6 +1,8 @@
 import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
 
 import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 import Head from "next/head";
 import env from "~/config/env";
 import { theme } from "~/core/styles/theme";
@@ -34,6 +36,9 @@ export default function App({ Component, pageProps }: any) {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </Head>
+
+      <Notifications />
+
       <Component {...pageProps} />
     </MantineProvider>
   );

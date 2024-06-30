@@ -25,12 +25,8 @@ export default function CampaignPage() {
   }, []);
 
   const getFactory = async () => {
-    const new_campaign = campaignFactory(env.CONTRACT_ADDRESS);
-
-    console.log({ new_campaign });
-    const result = await new_campaign.methods.getDeployedCampaigns().call();
-
-    console.log(result);
+    const contract = campaignFactory(env.CONTRACT_ADDRESS);
+    const result = await contract.methods.getDeployedCampaigns().call();
 
     // @ts-expect-error
     setFactory(result);
@@ -40,7 +36,9 @@ export default function CampaignPage() {
     <Layout>
       <Group justify="space-between">
         <Title>Open Campaigns</Title>
-        <Button radius="md">Create</Button>
+        <Button radius="md" component={Link} href={"/campaign/add"}>
+          Create
+        </Button>
       </Group>
 
       <Divider my={20} variant="dashed" />
