@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 const APP_NAME = process.env.APP_NAME || "NextJs";
 const APP_URL = process.env.APP_URL || "example.com";
 
