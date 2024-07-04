@@ -28,7 +28,6 @@ export default function CampaignPage() {
     const contract = campaignFactory(env.CONTRACT_ADDRESS);
     const result = await contract.methods.getDeployedCampaigns().call();
 
-    // @ts-expect-error
     setFactory(result);
   };
 
