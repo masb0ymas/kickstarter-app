@@ -18,6 +18,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import env from "~/config/env";
+import web3 from "~/config/web3";
 import Layout from "~/layouts";
 import campaignFactory from "~/solidity/node/factory";
 
@@ -58,14 +59,16 @@ export default function CampaignForm() {
   const onFormSubmit = async () => {
     setVisible(true);
 
-    const { minimumContribution, manager } = form.values;
+    const { minimumContribution } = form.values;
 
     try {
+      const accounts = await web3.eth.getAccounts();
       const contract = campaignFactory(env.CONTRACT_ADDRESS);
+
       // create campaign
       await contract.methods
         .createCampaign(minimumContribution)
-        .send({ from: manager });
+        .send({ from: accounts[0] });
 
       // redirect
       router.push("/");
@@ -107,7 +110,7 @@ export default function CampaignForm() {
                   <NumberInput
                     label="Minimum Contributor"
                     placeholder="Input Minimum Contributor"
-                    min={100}
+                    min={0}
                     suffix=" wei"
                     {...form.getInputProps("minimumContribution")}
                   />
